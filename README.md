@@ -3,8 +3,8 @@
 Sistema de Inventario desarrollado en JavaFX.
 
 ## Integrantes
-- Nombre 1
-- Nombre 2
+- Alejandro Aguirre
+- Briander Verdezoto
 
 ## Tecnologías
 - Java
