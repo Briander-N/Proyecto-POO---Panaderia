@@ -1,4 +1,45 @@
 package com.example.panaderia_el_panshito.model;
 
-public class Persona {
+public abstract class Persona {
+    private int id;
+    private String nombre;
+    private String correo;
+
+    public Persona(){
+    }
+
+    public Persona(int id, String nombre, String correo){
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+    }
+
+    public abstract String obtenerRol();
+
+    //Getters y Setters
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+
 }
