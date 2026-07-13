@@ -12,4 +12,4 @@ Sistema de Inventario desarrollado en JavaFX.
 - PostgreSQL
 
 ## Estado
-Primera entrega en desarrollo.
+50%.
