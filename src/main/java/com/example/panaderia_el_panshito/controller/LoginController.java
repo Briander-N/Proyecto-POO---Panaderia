@@ -2,6 +2,7 @@ package com.example.panaderia_el_panshito.controller;
 
 import com.example.panaderia_el_panshito.dao.UsuarioDAO;
 import com.example.panaderia_el_panshito.model.Usuario;
+import com.example.panaderia_el_panshito.util.Sesion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +40,8 @@ public class LoginController {
             mostrarAlerta("Error de acceso", "Correo o contraseña incorrectos.");
             return;
         }
+
+        Sesion.setUsuarioActual(usuario);
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(
