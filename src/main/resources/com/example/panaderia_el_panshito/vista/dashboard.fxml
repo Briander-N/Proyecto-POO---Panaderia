@@ -22,20 +22,20 @@
 
             <VBox fx:id="panelAdmin" spacing="10">
                 <Label style="-fx-font-weight: bold;" text="Panel de Administrador" />
-                <Button text="Gestión de Usuarios" />
-                <Button text="Reportes" />
-                <Button text="Configuración" />
+                <Button onAction="#irUsuarios" text="Gestión de Usuarios" />
+                <Button onAction="#irProductos" text="CRUD de Productos" />
+                <Button onAction="#irReportes" text="Reportes" />
+                <Button onAction="#irConfiguracion" text="Configuración" />
             </VBox>
 
             <VBox fx:id="panelCajero" spacing="10">
                 <Label style="-fx-font-weight: bold;" text="Panel de Cajero" />
-                <Button text="Registrar Venta" />
-                <Button text="Consultar Stock" />
+                <Button onAction="#irVenta" text="Registrar Venta / Consultar Stock" />
             </VBox>
 
             <VBox fx:id="panelReportes" spacing="10">
                 <Label style="-fx-font-weight: bold;" text="Panel de Reportes" />
-                <Button text="Ver Estadísticas" />
+                <Button onAction="#irReportes" text="Ver Estadísticas" />
             </VBox>
 
         </VBox>
