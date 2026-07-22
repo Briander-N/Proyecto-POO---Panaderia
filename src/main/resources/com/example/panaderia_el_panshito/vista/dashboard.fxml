@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.panaderia_el_panshito.controller.DashboardController">
+<BorderPane style="-fx-background-color: #BAB1B1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.DashboardController">
 
     <top>
-        <HBox spacing="20" style="-fx-padding: 10; -fx-background-color: #2c3e50;">
+        <HBox spacing="20" style="-fx-padding: 12; -fx-background-color: #2c3e50;">
             <Label fx:id="lblNombre" style="-fx-text-fill: white;" />
             <Label fx:id="lblRol" style="-fx-text-fill: white;" />
-            <Button onAction="#cerrarSesion" text="Cerrar Sesión" />
+            <Button onAction="#cerrarSesion" style="-fx-background-color: #00A3F5;" text="Cerrar Sesión" />
         </HBox>
     </top>
 
@@ -21,21 +18,30 @@
         <VBox spacing="10" style="-fx-padding: 20;">
 
             <VBox fx:id="panelAdmin" spacing="10">
-                <Label style="-fx-font-weight: bold;" text="Panel de Administrador" />
-                <Button onAction="#irUsuarios" text="Gestión de Usuarios" />
-                <Button onAction="#irProductos" text="CRUD de Productos" />
-                <Button onAction="#irReportes" text="Reportes" />
-                <Button onAction="#irConfiguracion" text="Configuración" />
+                <Label style="-fx-font-weight: bold;" text="Panel de Administrador">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <Button onAction="#irUsuarios" style="-fx-background-color: #D9A566; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18; -fx-cursor: hand;" text="Gestión de Usuarios" />
+                <Button onAction="#irProductos" style="-fx-background-color: #D9A566; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18; -fx-cursor: hand;" text="CRUD de Productos" />
+                <Button onAction="#irReportes" style="-fx-background-color: #D9A566; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18; -fx-cursor: hand;" text="Reportes" />
+                <Button onAction="#irConfiguracion" style="-fx-background-color: #D9A566; -fx-font-weight: bold; background-radius: 6; -fx-padding: 8 18; -fx-cursor: hand;" text="Configuración" />
             </VBox>
 
             <VBox fx:id="panelCajero" spacing="10">
-                <Label style="-fx-font-weight: bold;" text="Panel de Cajero" />
-                <Button onAction="#irVenta" text="Registrar Venta / Consultar Stock" />
+                <Label style="-fx-font-weight: bold;" text="Panel de Cajero">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <Button onAction="#irVenta" style="-fx-background-color: #D9A566; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18; -fx-cursor: hand;" text="Registrar Venta / Consultar Stock" />
             </VBox>
 
             <VBox fx:id="panelReportes" spacing="10">
-                <Label style="-fx-font-weight: bold;" text="Panel de Reportes" />
-                <Button onAction="#irReportes" text="Ver Estadísticas" />
+                <Label style="-fx-font-weight: bold;" text="Panel de Reportes">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <Button onAction="#irReportes" style="-fx-background-color: #D9A566; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18; -fx-cursor: hand;" text="Ver Estadísticas" />
             </VBox>
 
         </VBox>

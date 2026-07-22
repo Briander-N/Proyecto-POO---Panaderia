@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.panaderia_el_panshito.controller.UsuarioController">
+<BorderPane style="-fx-background-color: #BAB1B1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.UsuarioController">
 
     <top>
-        <HBox spacing="15" style="-fx-padding: 10;">
-            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Gestión de Usuarios" />
-            <Button onAction="#volverDashboard" text="Volver al Dashboard" />
+        <HBox spacing="15" style="-fx-padding: 12; -fx-background-color: #2c3e50;">
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: &quot;Cooper Black&quot;;" text="Gestión de Usuarios" />
+            <Button onAction="#volverDashboard" style="-fx-background-color: #00A3F5; -fx-background-radius: 6; -fx-cursor: hand;" text="Volver al Dashboard" />
         </HBox>
     </top>
 
@@ -25,15 +16,15 @@
         <VBox spacing="15" style="-fx-padding: 15;">
 
             <HBox spacing="10">
-                <TextField fx:id="txtNombre" promptText="Nombre completo" />
-                <TextField fx:id="txtCorreo" promptText="Correo" />
-                <PasswordField fx:id="txtPassword" promptText="Contraseña" />
+                <TextField fx:id="txtNombre" promptText="Nombre completo" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 6;" />
+                <TextField fx:id="txtCorreo" promptText="Correo" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 6;" />
+                <PasswordField fx:id="txtPassword" promptText="Contraseña" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 6;" />
                 <ComboBox fx:id="comboRol" promptText="Rol" />
             </HBox>
 
             <HBox spacing="10">
-                <Button onAction="#guardar" text="Crear Usuario" />
-                <Button onAction="#limpiar" text="Limpiar" />
+                <Button onAction="#guardar" style="-fx-background-color: #6B8E23; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18; -fx-cursor: hand;" text="Crear Usuario" />
+                <Button onAction="#limpiar" style="-fx-background-color: #6B8E23; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18; -fx-cursor: hand;" text="Limpiar" />
             </HBox>
 
             <TableView fx:id="tablaUsuarios" prefHeight="350">

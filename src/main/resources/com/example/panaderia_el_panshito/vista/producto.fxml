@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.panaderia_el_panshito.controller.ProductoController">
+<BorderPane style="-fx-background-color: #BAB1B1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.ProductoController">
 
     <top>
-        <HBox spacing="15" style="-fx-padding: 10;">
-            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Gestión de Productos" />
-            <Button onAction="#volverDashboard" text="Volver al Dashboard" />
+        <HBox spacing="15" style="-fx-padding: 12; -fx-background-color: #2c3e50;">
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: &quot;Cooper Black&quot;;" text="Gestión de Productos" />
+            <Button onAction="#volverDashboard" style="-fx-background-color: #00A3F5; -fx-background-radius: 6; -fx-cursor: hand;" text="Volver al Dashboard" />
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="15" style="-fx-padding: 15;">
+        <VBox spacing="15" style="-fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);">
 
             <HBox spacing="10">
-                <TextField fx:id="txtNombre" promptText="Nombre del producto" />
-                <TextField fx:id="txtPrecio" promptText="Precio" />
-                <TextField fx:id="txtStock" promptText="Stock" />
+                <TextField fx:id="txtNombre" promptText="Nombre del producto" style="-fx-padding: 6; -fx-background-radius: 5; -fx-border-radius: 5;" />
+                <TextField fx:id="txtPrecio" promptText="Precio" style="-fx-padding: 6; -fx-background-radius: 5; -fx-border-radius: 5;" />
+                <TextField fx:id="txtStock" promptText="Stock" style="-fx-padding: 6; -fx-border-radius: 5; -fx-background-radius: 5;" />
             </HBox>
 
             <HBox spacing="10">
-                <Button onAction="#guardar" text="Guardar" />
-                <Button onAction="#eliminar" text="Eliminar" />
-                <Button onAction="#limpiar" text="Limpiar" />
+                <Button onAction="#guardar" style="-fx-background-color: #6B8E23; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Guardar" />
+                <Button onAction="#eliminar" style="-fx-background-color: #6B8E23; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Eliminar" />
+                <Button onAction="#limpiar" style="-fx-background-color: #6B8E23; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Limpiar" />
             </HBox>
 
-            <TableView fx:id="tablaProductos" prefHeight="350">
+            <TableView fx:id="tablaProductos" prefHeight="350" style="-fx-border-radius: 6;">
                 <columns>
                     <TableColumn fx:id="colId" prefWidth="60" text="ID" />
                     <TableColumn fx:id="colNombre" prefWidth="220" text="Nombre" />
