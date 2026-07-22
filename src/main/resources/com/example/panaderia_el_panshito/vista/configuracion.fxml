@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane style="-fx-background-color: #BAB1B1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.ConfiguracionController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.ConfiguracionController">
+    <stylesheets>
+        <URL value="@../styles.css" />
+    </stylesheets>
 
     <top>
-        <HBox spacing="15" style="-fx-padding: 10; -fx-background-color: #2c3e50;">
-            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: &quot;Cooper Black&quot;;" text="Configuración del Sistema" />
-            <Button onAction="#volverDashboard" style="-fx-background-color: #00A3F5; -fx-background-radius: 6; -fx-cursor: hand;" text="Volver al Dashboard" />
+        <HBox spacing="15" styleClass="top-bar">
+            <Label styleClass="top-bar-title" text="Configuración del Sistema" />
+            <Button onAction="#volverDashboard" styleClass="btn-back" text="Volver al Dashboard" />
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="15" style="-fx-padding: 20; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2); -fx-max-width: 400;">
-            <Label style="-fx-font-weight: bold;" text="Nombre de la empresa" />
-            <TextField fx:id="txtNombreEmpresa" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 6;" />
+        <VBox spacing="15" styleClass="panel-card">
+            <Label styleClass="form-label" text="Nombre de la empresa" />
+            <TextField fx:id="txtNombreEmpresa" styleClass="input-field" />
 
-            <Label style="-fx-font-weight: bold;" text="Dirección" />
-            <TextField fx:id="txtDireccion" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 6;" />
+            <Label styleClass="form-label" text="Dirección" />
+            <TextField fx:id="txtDireccion" styleClass="input-field" />
 
-            <Button onAction="#guardar" style="-fx-background-color: #6B8E23; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 6; -fx-cursor: hand;" text="Guardar Configuración" />
+            <Button onAction="#guardar" styleClass="btn-success" text="Guardar Configuración" />
         </VBox>
     </center>
 

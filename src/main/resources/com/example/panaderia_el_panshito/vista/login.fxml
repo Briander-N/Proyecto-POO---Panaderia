@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #BAB1B1; -fx-background-radius: 10; -fx-border-color: #D9A566; -fx-border-width: 2; -fx-border-radius: 10; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2); -fx-max-width: 350;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.LoginController">
+<VBox alignment="CENTER" spacing="15.0" styleClass="login-box" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.LoginController">
+    <stylesheets>
+        <URL value="@../styles.css" />
+    </stylesheets>
     <padding>
         <Insets bottom="30" left="40" right="40" top="30" />
     </padding>
 
-    <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #8B5E3C; -fx-font-family: &quot;Cooper Black&quot;;" text="Panadería El Panshito" />
+    <Label styleClass="login-title" text="Panadería El Panshito" />
 
-    <TextField fx:id="txtCorreo" promptText="Correo" style="-fx-background-color: #FFF8F0; -fx-border-color: #D9A566; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 6;" />
-    <PasswordField fx:id="txtPassword" promptText="Contraseña" style="-fx-background-color: #FFF8F0; -fx-border-color: #D9A566; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 6;" />
+    <TextField fx:id="txtCorreo" promptText="Correo" styleClass="login-field" />
+    <PasswordField fx:id="txtPassword" promptText="Contraseña" styleClass="login-field" />
 
-    <Button onAction="#iniciarSesion" style="-fx-background-color: #D9A566; -fx-text-fill: #3A2E27; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 8 18;" text="Ingresar" />
+    <Button onAction="#iniciarSesion" styleClass="btn-login" text="Ingresar" />
 
-    <Label fx:id="lblMensaje" style="-fx-text-fill: #B23A2F; -fx-font-size: 12px;" />
+    <Label fx:id="lblMensaje" styleClass="lbl-error" />
 </VBox>

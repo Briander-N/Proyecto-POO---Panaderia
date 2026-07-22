@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.ReportesController">
+    <stylesheets>
+        <URL value="@../styles.css" />
+    </stylesheets>
 
     <top>
-        <HBox spacing="15" style="-fx-padding: 10; -fx-background-color: #2c3e50;">
-            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: &quot;Cooper Black&quot;;" text="Módulo de Reportes" />
-            <Button onAction="#volverDashboard" style="-fx-background-color: #00A3F5; -fx-background-radius: 6; -fx-cursor: hand;" text="Volver al Dashboard" />
+        <HBox spacing="15" styleClass="top-bar">
+            <Label styleClass="top-bar-title" text="Módulo de Reportes" />
+            <Button onAction="#volverDashboard" styleClass="btn-back" text="Volver al Dashboard" />
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #BAB1B1;">
-            <Label fx:id="lblTotalProductos" style="-fx-font-size: 14px;" />
-            <Label fx:id="lblTotalUsuarios" style="-fx-font-size: 14px;" />
-            <Label fx:id="lblTotalVentas" style="-fx-font-size: 14px;" />
-            <Label fx:id="lblStockBajo" style="-fx-font-size: 14px;" />
+        <VBox spacing="15" styleClass="dashboard-content">
+            <Label fx:id="lblTotalProductos" styleClass="stat-label" />
+            <Label fx:id="lblTotalUsuarios" styleClass="stat-label" />
+            <Label fx:id="lblTotalVentas" styleClass="stat-label" />
+            <Label fx:id="lblStockBajo" styleClass="stat-label" />
         </VBox>
     </center>
 
