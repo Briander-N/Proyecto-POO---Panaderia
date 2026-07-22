@@ -9,7 +9,5 @@ Sistema de Inventario desarrollado en JavaFX.
 ## Tecnologías
 - Java
 - JavaFX
-- PostgreSQL
+- MySQL
 
-## Estado
-50%.
