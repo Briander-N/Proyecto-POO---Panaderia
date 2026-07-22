@@ -1,15 +1,8 @@
 package com.example.panaderia_el_panshito.controller;
 
-import com.example.panaderia_el_panshito.util.Sesion;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class ConfiguracionController {
 
@@ -39,24 +32,6 @@ public class ConfiguracionController {
         Alert ok = new Alert(Alert.AlertType.INFORMATION);
         ok.setContentText("Configuración guardada correctamente.");
         ok.showAndWait();
-    }
-
-    @FXML
-    private void volverDashboard() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/com/example/panaderia_el_panshito/vista/dashboard.fxml"));
-            Parent root = loader.load();
-
-            DashboardController dashboardController = loader.getController();
-            dashboardController.setUsuario(Sesion.getUsuarioActual());
-
-            Stage stage = (Stage) txtNombreEmpresa.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            alerta("No se pudo volver al dashboard: " + e.getMessage());
-        }
     }
 
     private void alerta(String mensaje) {

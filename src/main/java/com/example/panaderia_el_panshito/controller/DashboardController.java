@@ -7,8 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,82 +18,100 @@ public class DashboardController {
 
     @FXML private Label lblNombre;
     @FXML private Label lblRol;
+    @FXML private StackPane panelContenido;
 
-    @FXML private VBox panelAdmin;
-    @FXML private VBox panelCajero;
-    @FXML private VBox panelReportes;
+    @FXML private Button btnInicio;
+    @FXML private Button btnProductos;
+    @FXML private Button btnUsuarios;
+    @FXML private Button btnReportes;
+    @FXML private Button btnConfiguracion;
+    @FXML private Button btnVenta;
 
     private Usuario usuario;
 
-    // Este método lo llama el LoginController (o cualquier pantalla al volver) al entrar
+    // Lo llama el LoginController al entrar
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
         lblNombre.setText("Usuario: " + usuario.getNombre());
         lblRol.setText("Rol: " + usuario.getRol());
         adaptarMenuPorRol();
+        irInicio();
     }
 
     private void adaptarMenuPorRol() {
         String rol = usuario.getRol();
 
-        ocultar(panelAdmin);
-        ocultar(panelCajero);
-        ocultar(panelReportes);
+        ocultar(btnProductos);
+        ocultar(btnUsuarios);
+        ocultar(btnReportes);
+        ocultar(btnConfiguracion);
+        ocultar(btnVenta);
 
         switch (rol) {
-            case "ADMIN" -> mostrar(panelAdmin);
-            case "CAJERO" -> mostrar(panelCajero);
-            case "REPORTES" -> mostrar(panelReportes);
+            case "ADMIN" -> {
+                mostrar(btnProductos);
+                mostrar(btnUsuarios);
+                mostrar(btnReportes);
+                mostrar(btnConfiguracion);
+            }
+            case "CAJERO" -> mostrar(btnVenta);
+            case "REPORTES" -> mostrar(btnReportes);
         }
     }
 
-    private void mostrar(VBox panel) {
-        panel.setVisible(true);
-        panel.setManaged(true);
+    private void mostrar(Button boton) {
+        boton.setVisible(true);
+        boton.setManaged(true);
     }
 
-    private void ocultar(VBox panel) {
-        panel.setVisible(false);
-        panel.setManaged(false);
+    private void ocultar(Button boton) {
+        boton.setVisible(false);
+        boton.setManaged(false);
+    }
+
+    @FXML
+    private void irInicio() {
+        panelContenido.getChildren().clear();
+        Label bienvenida = new Label("Bienvenido/a, " + usuario.getNombre() + ".");
+        bienvenida.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+        panelContenido.getChildren().add(bienvenida);
     }
 
     @FXML
     private void irProductos() {
-        navegarA("/com/example/panaderia_el_panshito/vista/producto.fxml", "Gestión de Productos");
-    }
-
-    @FXML
-    private void irVenta() {
-        navegarA("/com/example/panaderia_el_panshito/vista/venta.fxml", "Registrar Venta");
+        cargarContenido("/com/example/panaderia_el_panshito/vista/producto.fxml");
     }
 
     @FXML
     private void irUsuarios() {
-        navegarA("/com/example/panaderia_el_panshito/vista/usuario.fxml", "Gestión de Usuarios");
+        cargarContenido("/com/example/panaderia_el_panshito/vista/usuario.fxml");
     }
 
     @FXML
     private void irReportes() {
-        navegarA("/com/example/panaderia_el_panshito/vista/reportes.fxml", "Módulo de Reportes");
+        cargarContenido("/com/example/panaderia_el_panshito/vista/reportes.fxml");
     }
 
     @FXML
     private void irConfiguracion() {
-        navegarA("/com/example/panaderia_el_panshito/vista/configuracion.fxml", "Configuración");
+        cargarContenido("/com/example/panaderia_el_panshito/vista/configuracion.fxml");
     }
 
-    private void navegarA(String rutaFxml, String titulo) {
+    @FXML
+    private void irVenta() {
+        cargarContenido("/com/example/panaderia_el_panshito/vista/venta.fxml");
+    }
+
+    // Carga la pantalla pedida DENTRO del panel de contenido, sin tocar el sidebar
+    private void cargarContenido(String rutaFxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFxml));
-            Parent root = loader.load();
-
-            Stage stage = (Stage) lblNombre.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Panadería El Panshito - " + titulo);
-            stage.show();
+            Parent vista = loader.load();
+            panelContenido.getChildren().clear();
+            panelContenido.getChildren().add(vista);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("No se pudo abrir la pantalla: " + e.getMessage());
+            alert.setContentText("No se pudo cargar la pantalla: " + e.getMessage());
             alert.showAndWait();
         }
     }

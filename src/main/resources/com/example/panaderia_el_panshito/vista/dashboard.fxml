@@ -1,54 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panaderia_el_panshito.controller.DashboardController">
-    <stylesheets>
-        <URL value="@../styles.css" />
-    </stylesheets>
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.panaderia_el_panshito.controller.DashboardController"
+            stylesheets="@../styles.css">
 
-    <top>
-        <HBox spacing="20" styleClass="top-bar">
+    <left>
+        <VBox spacing="12" style="-fx-padding: 20; -fx-background-color: #2c3e50; -fx-min-width: 220;">
+
+            <ImageView fitHeight="122.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../img/LogoPAN.png" />
+                </image>
+            </ImageView>
+
             <Label fx:id="lblNombre" styleClass="header-label" />
             <Label fx:id="lblRol" styleClass="header-label" />
-            <Button onAction="#cerrarSesion" styleClass="btn-logout" text="Cerrar Sesión" />
-        </HBox>
-    </top>
 
-    <center>
-        <VBox spacing="10" styleClass="dashboard-content">
+            <Button fx:id="btnInicio" maxWidth="Infinity" onAction="#irInicio" styleClass="btn-dashboard" text="Inicio" />
+            <Button fx:id="btnProductos" maxWidth="Infinity" onAction="#irProductos" styleClass="btn-dashboard" text="CRUD de Productos" />
+            <Button fx:id="btnUsuarios" maxWidth="Infinity" onAction="#irUsuarios" styleClass="btn-dashboard" text="Gestión de Usuarios" />
+            <Button fx:id="btnReportes" maxWidth="Infinity" onAction="#irReportes" styleClass="btn-dashboard" text="Reportes" />
+            <Button fx:id="btnConfiguracion" maxWidth="Infinity" onAction="#irConfiguracion" styleClass="btn-dashboard" text="Configuración" />
+            <Button fx:id="btnVenta" maxWidth="Infinity" onAction="#irVenta" styleClass="btn-dashboard" text="Registrar Venta" />
 
-            <VBox fx:id="panelAdmin" spacing="10">
-                <Label styleClass="panel-title" text="Panel de Administrador">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-                <Button onAction="#irUsuarios" styleClass="btn-dashboard" text="Gestión de Usuarios" />
-                <Button onAction="#irProductos" styleClass="btn-dashboard" text="CRUD de Productos" />
-                <Button onAction="#irReportes" styleClass="btn-dashboard" text="Reportes" />
-                <Button onAction="#irConfiguracion" styleClass="btn-dashboard" text="Configuración" />
-            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
 
-            <VBox fx:id="panelCajero" spacing="10">
-                <Label styleClass="panel-title" text="Panel de Cajero">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-                <Button onAction="#irVenta" styleClass="btn-dashboard" text="Registrar Venta / Consultar Stock" />
-            </VBox>
-
-            <VBox fx:id="panelReportes" spacing="10">
-                <Label styleClass="panel-title" text="Panel de Reportes">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-                <Button onAction="#irReportes" styleClass="btn-dashboard" text="Ver Estadísticas" />
-            </VBox>
+            <Button maxWidth="Infinity" onAction="#cerrarSesion" styleClass="btn-logout" text="Cerrar Sesión" />
 
         </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="panelContenido" styleClass="dashboard-content" />
     </center>
 
 </BorderPane>

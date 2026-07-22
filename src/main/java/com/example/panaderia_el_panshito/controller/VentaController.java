@@ -11,13 +11,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class VentaController {
 
@@ -108,24 +102,6 @@ public class VentaController {
         lblProductoSeleccionado.setText("Ningún producto seleccionado");
         productoSeleccionado = null;
         tablaProductos.getSelectionModel().clearSelection();
-    }
-
-    @FXML
-    private void volverDashboard() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/com/example/panaderia_el_panshito/vista/dashboard.fxml"));
-            Parent root = loader.load();
-
-            DashboardController dashboardController = loader.getController();
-            dashboardController.setUsuario(Sesion.getUsuarioActual());
-
-            Stage stage = (Stage) tablaProductos.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            alerta(Alert.AlertType.ERROR, "Error", "No se pudo volver al dashboard: " + e.getMessage());
-        }
     }
 
     private void alerta(Alert.AlertType tipo, String titulo, String mensaje) {

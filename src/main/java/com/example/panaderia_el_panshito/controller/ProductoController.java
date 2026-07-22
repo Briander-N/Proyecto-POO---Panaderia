@@ -2,21 +2,14 @@ package com.example.panaderia_el_panshito.controller;
 
 import com.example.panaderia_el_panshito.dao.ProductoDAO;
 import com.example.panaderia_el_panshito.model.Producto;
-import com.example.panaderia_el_panshito.model.Usuario;
-import com.example.panaderia_el_panshito.util.Sesion;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Optional;
 
 public class ProductoController {
@@ -151,26 +144,6 @@ public class ProductoController {
             return false;
         }
         return true;
-    }
-
-    @FXML
-    private void volverDashboard() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/com/example/panaderia_el_panshito/vista/dashboard.fxml"));
-            Parent root = loader.load();
-
-            DashboardController dashboardController = loader.getController();
-            Usuario actual = Sesion.getUsuarioActual();
-            dashboardController.setUsuario(actual);
-
-            Stage stage = (Stage) txtNombre.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Panadería El Panshito - Dashboard");
-            stage.show();
-        } catch (IOException e) {
-            alerta(Alert.AlertType.ERROR, "Error", "No se pudo volver al dashboard: " + e.getMessage());
-        }
     }
 
     private void alerta(Alert.AlertType tipo, String titulo, String mensaje) {
